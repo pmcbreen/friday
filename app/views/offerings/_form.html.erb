@@ -1,0 +1,57 @@
+<%= form_for @offering do |f| %>
+ 
+  <% if @offering.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@offering.errors.count, "error") %> prohibited
+        this offering from being saved:
+      </h2>
+      <ul>
+        <% @offering.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, :size => 55 %>
+  </p>
+  <div class="selector">
+	<%= f.label :teacher_ids, "teachers" %><br> <%= f.collection_select(:teacher_ids, Teacher.all.order(:aka), :id, :aka, {:prompt => "select one or more"}, {:multiple => true}) %>
+  </div>
+  <div class="selector">
+	<%= f.label :division_ids, "divisions" %><br> <%= f.collection_select(:division_ids, Division.all, :id, :div_number, {:prompt => "select one or more"}, {:multiple => true}) %>
+  </div>
+  <div class="lastselector">
+	<%= f.label :grade_ids, "grades" %><br> <%= f.collection_select(:grade_ids, Grade.all, :id, :grade_level, {:prompt => "select one or more"}, {:multiple => true}) %>
+  </div>
+  
+  <p>
+    <%= f.label :short_desc , "Short Decription" %><br>
+    <%= f.text_area :short_desc, :cols => 55, :rows => 3 %>
+  </p>
+  
+  <div class="selector">
+    <%= f.label :long_desc , "Long Description" %><br>
+    <%= f.text_area :long_desc, :cols => 55, :rows => 15 %>
+  </div>
+  
+<div class="offering">
+<p class="preview">Live Preview, your Offering Description will show below &hellip;</p>
+<div id="preview" class="offering"></div>
+</div>
+
+ 
+  <div class="submit">
+    <%= f.submit %>
+  </div>
+ 
+<% end %>
+
+
+
+<script type="text/javascript">
+	setInterval(preview_offering, 5000);
+</script>

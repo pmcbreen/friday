@@ -1,0 +1,38 @@
+<h1>The list of Offerings:</h1>
+
+<%= link_to 'New Offering', new_offering_path %>
+
+<table>
+  <tr>
+    <th class="title">Title</th>
+    <th>Short Desc.</th>
+    <th>Long Desc.</th>
+	<th>Teachers</th>
+    <th>Divisions</th>   
+    <th>Grades</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+ 
+  <% @offerings.each do |t| %>
+    <tr>
+      <td><%= t.title %></td>
+      <td><%= t.short_desc %></td>
+      <td><%= t.html_long_desc %></td>
+	  <td><%= render partial: "teacher", collection: t.teachers %></td>
+      <td><%= render partial: "division", collection: t.divisions %></td>
+      <td><%= render partial: "grade", collection: t.grades %></td>
+
+      <td><%= link_to 'Edit', edit_offering_path(t) %></td>
+      <td><%= link_to 'Delete', offering_path(t),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Welcome Page', root_path %>
+
+<script type="text/javascript">
+	$('tr:even').addClass('even');
+</script>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= pt = yield(:page_title) ; pt.empty? ? "Renert School Choice Friday" : pt %></title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="loggedIn"><% if logged_in?%>Logged in as <%= username() %> <%= link_to 'Change Password', change_password_path %> <%= link_to 'Logout', login_logout_path %> <% end %></div>
+
+<%= yield %>
+
+<script type="text/javascript">
+	$('tr:even').addClass('even');
+</script>
+</body>
+</html>

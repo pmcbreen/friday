@@ -1,0 +1,27 @@
+<p>
+  <strong>Title:</strong>
+  <%= @offering.title %>
+</p>
+<p><strong>Teachers</strong> <%= render partial: "teacher", collection: @offering.teachers %></p>
+<p><strong>Divisions</strong> <%= render partial: "division", collection: @offering.divisions %></p>
+<p><strong>Grades</strong> <%= render partial: "grade", collection: @offering.grades %></p>
+ 
+<p>
+  <strong>Short description:</strong>
+  <%= @offering.short_desc %>
+</p>
+
+<p>
+  <strong>Long description:</strong>
+  <%= @offering.html_long_desc %>
+</p>
+      
+
+
+<%= link_to 'Create a Offering', new_offering_path %>
+<%= link_to 'Edit the Offering', edit_offering_path %>
+<%= link_to 'Delete the Offering', offering_path(@offering),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+  
+<%= link_to 'Back', offerings_path %>

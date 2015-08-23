@@ -1,0 +1,26 @@
+<h1>The list of Parents:</h1>
+ 
+<%= link_to 'Create a Parent', new_parent_path %> 
+ 
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Username</th>
+  </tr>
+ 
+  <% @parents.each do |parent| %>
+    <tr>
+      <td><%= parent.first_name %></td>
+      <td><%= parent.last_name %></td>
+      <td><%= parent.member.nil? ? '' : parent.member.name %></td>
+      <td><%= link_to 'Show', parent_path(parent) %></td>
+      <td><%= link_to 'Edit', edit_parent_path(parent) %></td>
+      <td><%= link_to 'Delete', parent_path(parent),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to delete this parent?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Welcome Page', root_path %>

@@ -1,0 +1,15 @@
+== README
+
+This README covers the Choice Friday application.
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+=== To Do
+
+* Create users and add in the login to ensure that only authorized users can access specific requests - can use Red Rock Runners site to see how to do this
+* Enable a teacher (or admin) to create an offering - should have title, short description and long description, also needs to know which division it is appropriate for. For this initial version do not worry about when the offering is available, nor the room. Please note that these offerings must be linked to the teacher, similar to the way that comments were linked to the articles in the first website we created. --done
+* Fix divisions so that 'K' is supported - currently the division is an integer, so when saving 'K' it gets rejected. This will require a change to the table structure, so look at the migrations help page to figure out how to do this. --done
+
+* Split the welcome page to deal with the 4 different types of user login - students, parents, teachers and admim

@@ -1,0 +1,14 @@
+<div>
+<p>
+  <strong>First Name:</strong>
+  <%= @student.first_name %>
+</p>
+ 
+<p>
+  <strong>LastName:</strong>
+  <%= @student.last_name %>
+</p>
+<%= link_to 'New Student', new_student_path %>
+<%= link_to 'Edit', edit_student_path %>
+<%= link_to 'Back', students_path %>
+</div>

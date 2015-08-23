@@ -1,0 +1,17 @@
+class DivController < ApplicationController
+	def new
+		@division = Div.new
+	end
+
+	def index
+		@division = Div.all		
+	end
+	
+	def create
+		@division = Div.new(params[:div])
+		
+		@division.save
+		redirect_to @division
+	end
+
+end

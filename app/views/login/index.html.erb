@@ -1,0 +1,20 @@
+<% content_for :page_title, "Login to complete action on the Renert Choice Friday E-Sheet"%>
+<h2>Log HAHAHAHAHAHHAHAHAHAHHAHAAHAHHA in</h2>
+<fl><%= flash[:notice] %></fl>
+<div class="member">
+<%= form_for(@member, :url => {:controller => 'login',  :action => 'login' }) do |f| %>
+
+  <p>
+    <%= f.label "Name" %>
+    <%= f.text_field :name, :size => 40 %>
+  </p>
+  <p>
+    <%= f.label "Password" %>
+    <%= f.password_field :password, :size => 40 %>
+  </p>
+  <p>
+    <%= f.submit 'Login' %> or <%= link_to 'Cancel and go back to home page', '/' %>
+  </p>
+<% end %>
+</div>
+<%= link_to 'Back', root_path %>

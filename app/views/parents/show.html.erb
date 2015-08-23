@@ -1,0 +1,18 @@
+<p>
+  <strong>First Name:</strong>
+  <%= @parent.first_name %>
+</p>
+ 
+<p>
+  <strong>Last Name:</strong>
+  <%= @parent.last_name %>
+</p>
+
+<p>
+  <strong>username:</strong>
+  <%= @parent.member.nil? ? '' : @parent.member.name %>
+</p>
+
+<%= link_to 'Create a Parent', new_parent_path %>
+<%= link_to 'Edit this Parent', edit_parent_path %>
+<%= link_to 'Back', parents_path %>

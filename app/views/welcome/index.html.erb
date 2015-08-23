@@ -1,0 +1,44 @@
+<h1>Renert choice friday E-sheet?</h1>
+
+<h2>Main landing page</h2>
+<%= link_to 'Student', controller: 'welcome', action: 'student' %>
+<%= link_to 'Parent', controller: 'welcome', action: 'parent' %>
+<%= link_to 'Teacher', controller: 'welcome', action: 'teacher' %>
+<%= link_to 'Admin', controller: 'welcome', action: 'admin' %>
+
+<p>To Do (partial list):</p>
+<ol>
+	<li>Parents need to have_many students, so when adding parent, need to be able to add students at the same time - does not make sense to be able to add a student without a parent. This makes it simpler to add the students since do not have a list of 150 students to link to the parent. For simplicity only allow one parent for now.</li>
+	<li>Automatically link the offering to that teacher by default (though other teachers can be added)</li>
+	<li>change permission checks so that students can only edit their own record and get to /student</li>
+	<li>check permissions for teachers and restrict to sensible subset - but allow teachers to edit each other's offerings'</li>
+	<li>For admin, show nicely formatted list of offerings, sorted by divisions, teacher, offering name</li>
+	<li>lots more to come</li>
+	<li>...</li>
+	<li>Pete to find place to host Rails 4 application in Canada [done?]</li>
+</ol>
+
+<p>Note. Login only shows up on this page if you are not logged in.</p>
+
+<div class="flash_notice"><%= flash[:notice] %></div>
+<% if !logged_in?%>
+<% content_for :page_title, "Login to complete action on the Renert Choice Friday E-Sheet"%>
+<h2>Login</h2>
+<div class="member">
+<%= form_for(@member, :url => {:controller => 'login',  :action => 'login' }) do |f| %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, :size => 40 %>
+  </p>
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password, :size => 40 %>
+  </p>
+  <p>
+    <%= f.submit 'Login' %>
+  </p>
+<% end %>
+</div>
+
+<% end %>

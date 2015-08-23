@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  short_desc: MyText
+  long_desc: MyText
+  div_num: MyString
+  teacher: 
+
+two:
+  title: MyString
+  short_desc: MyText
+  long_desc: MyText
+  div_num: MyString
+  teacher: 

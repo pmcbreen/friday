@@ -1,0 +1,32 @@
+<p>
+  <strong>First Name:</strong>
+  <%= @teacher.firstname %>
+</p>
+ 
+<p>
+  <strong>Last Name:</strong>
+  <%= @teacher.lastname %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @teacher.title %>
+</p>
+
+<p>
+  <strong>Aka:</strong>
+  <%= @teacher.aka %>
+</p>
+
+<p>
+  <strong>username:</strong>
+  <%= @teacher.member.nil? ? '' : @teacher.member.name %>
+</p>
+
+<%= link_to 'Create a Teacher', new_teacher_path %>
+<%= link_to 'Edit the Teacher', edit_teacher_path %>
+<%= link_to 'Kill the Teacher', teacher_path(@teacher),
+    method: :delete,
+    data: { confirm: 'Are you sure you want to condemn this teacher to the eternal fires of hell?' } %>
+  
+<%= link_to 'Back', teachers_path %>

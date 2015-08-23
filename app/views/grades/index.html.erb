@@ -1,0 +1,26 @@
+<div>
+<h1> Listing of Grades </h1>
+<%= link_to 'New Grade', new_grade_path %>
+
+
+<table>
+  <tr>
+    <th>Grade</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @grades.each do |grade| %>
+    <tr>
+      <td><%= grade.grade_level %></td>
+      <td><%= link_to 'Show', grade_path(grade) %></td>
+      <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
+	  <td><%= link_to 'Delete', grade_path(grade),
+		method: :delete,
+		data: { confirm: 'Are you sure you want to delete the grade?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Welcome Page', root_path %>
+</div>
+

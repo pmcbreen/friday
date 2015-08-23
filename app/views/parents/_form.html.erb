@@ -1,0 +1,62 @@
+<%= form_for @parent do |f| %>
+ 
+  <% if @parent.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@parent.errors.count, "error") %> prohibited
+        this parent from being saved:
+      </h2>
+      <ul>
+        <% @parent.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <% if @parent.member.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@parent.member.errors.count, "error") %> prohibited
+        this parent from being saved:
+      </h2>
+      <ul>
+        <% @parent.member.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </p>
+ 
+  <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </p>
+  
+  <%= fields_for :member, @parent.member do |m| %>
+  <p>
+    <%= m.label :name %>
+    <%= m.text_field :name, :size => 40 %>
+  </p>
+  
+  <p>
+    <%= m.label :password %>
+    <%= m.password_field :password, :size => 40 %>
+  </p>
+  
+  <p>
+    <%= m.label :password_confirmation, "Confirmation" %>
+    <%= m.password_field :password_confirmation, :size => 40 %>
+  </p>
+  <% end %>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>

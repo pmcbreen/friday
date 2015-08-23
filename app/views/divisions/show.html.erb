@@ -1,0 +1,15 @@
+<p>
+  <strong>Division:</strong>
+  <%= @division.div_number %>
+</p>
+
+<p>
+  <strong>Grades:</strong>
+  <td><%= render partial: "grade", collection: @division.grades %></td>
+</p>
+
+ 
+<%= link_to 'New Division', new_division_path %>
+<%= link_to 'Edit', edit_division_path %>
+<%= link_to 'back', controller: 'divisions' %>
+<%= link_to 'Welcome Page', root_path %>

@@ -1,0 +1,72 @@
+<%= form_for @teacher do |f| %>
+ 
+  <% if @teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@teacher.errors.count, "error") %> prohibited
+        this teacher from being saved:
+      </h2>
+      <ul>
+        <% @teacher.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @teacher.member.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@teacher.member.errors.count, "error") %> prohibited
+        this teacher from being saved:
+      </h2>
+      <ul>
+        <% @teacher.member.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :firstname , "First Name" %><br>
+    <%= f.text_field :firstname %>
+  </p>
+ 
+  <p>
+    <%= f.label :lastname, "LastName" %><br>
+    <%= f.text_field :lastname %>
+  </p>
+  
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :aka,"AKA" %><br>
+    <%= f.text_field :aka %>
+  </p>
+  <h2> Login Info </h2>
+ <%= fields_for :member, @teacher.member do |m| %>
+  <p>
+    <%= m.label :name %>
+    <%= m.text_field :name, :size => 40 %>
+  </p>
+  
+  <p>
+    <%= m.label :password %>
+    <%= m.password_field :password, :size => 40 %>
+  </p>
+  
+  <p>
+    <%= m.label :password_confirmation, "Confirmation" %>
+    <%= m.password_field :password_confirmation, :size => 40 %>
+  </p>
+<% end %>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>

@@ -1,0 +1,18 @@
+<% content_for :page_title, "Teacher" %>
+<h1>Renert choice friday E-sheet - Teacher</h1>
+
+<h2>Teachers</h2>
+
+<p>Needs to have links to creating offering, and students who have signed up for offering (aka classlists)</p>
+<table>
+<thead>
+<tr><th class="title">Title</th><th class="shortdescription">Short Description</th></tr>
+</thead>
+<tbody>
+<% @teacher.offerings.each do |offering| %>
+<tr><td><%= offering.title%></td><td><%= offering.short_desc%></td></tr>
+
+<% end %>
+<tr><td>more <%= link_to 'Offerings', controller: 'offerings' %></td><td></td></tr>
+</tbody>
+</table>

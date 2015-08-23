@@ -1,0 +1,4 @@
+<p><%= (logged_in? && (logged_in_as(member.id))) ? link_to(h(member.name) , edit_member_path(member)) : member.name %> <span class='shy'>&nbsp; <%= (member.admin? && !logged_in_as(member.id)) ? (link_to 'Delete', member_path(member),
+	method: :delete,
+	data: { confirm: 'Are you sure you want to delete the member?' } ) : '' %>
+</span></p>

@@ -1,0 +1,26 @@
+<h1>Listing of Divisions </h1>
+<%= link_to 'New Division', new_division_path %> 
+ 
+<table>
+  <tr>
+    <th>Division</th>    
+    <th>Grades</th>
+    <th>&nbsp;</th>
+  </tr>
+ 
+  <% @divisions.each do |division| %>
+    <tr>
+      <td><%= division.div_number %></td>
+      <td><%= render partial: "grade", collection: division.grades %></td>
+      <td><%= link_to 'Show', division_path(division) %></td>
+      <td><%= link_to 'Edit', edit_division_path(division) %></td>
+      <td><%= link_to 'Delete', division_path(division),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to delete the division?' } %></td>
+    </tr>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= link_to 'Welcome Page', root_path %>

@@ -1,0 +1,6 @@
+<% content_for :page_title, "Members Admin Page"%>
+<h2>Members allowed to edit this site</h2>
+<p><%= link_to 'New Member', new_member_path %></p>
+<div class="links">
+<%= render @members %>
+</div>
